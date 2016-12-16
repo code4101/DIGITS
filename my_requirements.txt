@@ -1,0 +1,9 @@
+Flask==0.10.1
+Flask-WTF>=0.11,<=0.12
+Flask-SocketIO==2.6
+scikit-fmm>=0.0.9
+protobuf>=2.5.0,<=2.6.1
+wtforms>=2.0,<=2.1
+pydot>=1.0.28,<=1.0.29
+lmdb==0.87
+
