@@ -10,6 +10,8 @@ import re
 import shutil
 import zipfile
 
+import platform
+
 
 def extract_data(input_dir, output_dir):
     """
@@ -68,6 +70,10 @@ def split_by_video(training_dir, mapping, split_dir,
     """
     Create one directory per video in split_dir
     """
+	# In Windows, the os has no attribute 'symlink'
+    if platform.platform().find('Windows') != -1:
+		use_symlinks = False;
+	
     new_images_dir = os.path.join(split_dir, 'images')
     new_labels_dir = os.path.join(split_dir, 'labels')
     if os.path.isdir(new_images_dir):
@@ -113,6 +119,10 @@ def split_for_training(split_dir, train_dir, val_dir,
     """
     Create directories of images for training and validation
     """
+	# In Windows, the os has no attribute 'symlink'
+    if platform.platform().find('Windows') != -1:
+		use_symlinks = False;
+		
     if os.path.isdir(train_dir):
         shutil.rmtree(train_dir)
     if os.path.isdir(val_dir):
