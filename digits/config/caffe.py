@@ -20,8 +20,10 @@ def load_from_envvar(envvar):
     value = os.environ[envvar].strip().strip("\"' ")
 
     if platform.system() == 'Windows':
-        executable_dir = os.path.join(value, 'install', 'bin')
-        python_dir = os.path.join(value, 'install', 'python')
+#       executable_dir = os.path.join(value, 'install', 'bin')
+        executable_dir = os.path.join(value)
+#       python_dir = os.path.join(value, 'install', 'python')
+        python_dir = os.path.join(value,'pycaffe')
     else:
         executable_dir = os.path.join(value, 'build', 'tools')
         python_dir = os.path.join(value, 'python')
